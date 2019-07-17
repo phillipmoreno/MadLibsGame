@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: lavender;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibOutputController">
+	<center>
+		<AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lavender;" BorderPane.alignment="CENTER">
+			<children>
+				<Label layoutX="176.0" text="WackyTown">
+					<font>
+						<Font name="Segoe Print Bold" size="41.0" />
+					</font>
+				</Label>
+				<ImageView fitHeight="134.0" fitWidth="592.0" layoutX="4.0" layoutY="466.0">
+					<image>
+						<Image url="@TownClipArt.png" />
+					</image>
+				</ImageView>
+				<TextArea fx:id="madLibsTA" editable="false" layoutX="21.0" layoutY="73.0" prefHeight="394.0" prefWidth="558.0" wrapText="true">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</TextArea>
+				<ImageView fitHeight="72.0" fitWidth="88.0" layoutX="436.0">
+					<image>
+						<Image url="@MadLibsLogo.png" />
+					</image>
+				</ImageView>
+			</children>
+		</AnchorPane>
+	</center>
+</BorderPane>
