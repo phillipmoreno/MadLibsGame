@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class MadLibController {
+public class MadLibs1Controller {
 
 	@FXML
 	private TextField cityTF1;
@@ -58,11 +58,11 @@ public class MadLibController {
 		String subject = schoolsubTF.getText();
 		try {
 			// FXMLLoader object is created to load in fxml file
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("madLib101Output.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput1.fxml"));
 			// Parent object is created and set as a loader
 			Parent root = (Parent) loader.load();
 			// MadLibOutputController object is created and controller is retrieved
-			MadLibOutputController mloc = loader.getController();
+			MadLibsOutput1Controller mloc = loader.getController();
 			// the setTextArea function is called
 			mloc.setTextArea(city1, city2, food1, food2, food3, book1, book2, toy, subject);
 			// Stage object is created
