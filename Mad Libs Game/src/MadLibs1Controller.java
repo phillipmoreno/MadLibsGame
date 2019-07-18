@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -39,9 +40,12 @@ public class MadLibs1Controller {
 	private TextField schoolsubTF;
 
 	@FXML
-	void closeProgram(ActionEvent event) {
-		System.exit(0);
+	private Button close;
 
+	@FXML
+	void closeProgram(ActionEvent event) {
+		Stage stage = (Stage) close.getScene().getWindow();
+		stage.close();
 	}
 
 	@FXML
