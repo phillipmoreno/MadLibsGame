@@ -1,7 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-public class MadLibOutputController {
+public class MadLibsOutput1Controller {
 
 	@FXML
 	public TextArea madLibsTA;
