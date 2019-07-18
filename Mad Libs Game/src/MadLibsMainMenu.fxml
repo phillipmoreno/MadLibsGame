@@ -6,13 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsMainMenuController">
    <center>
-      <AnchorPane fx:id="circle1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightSkyBlue;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightSkyBlue;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="116.0" fitWidth="402.0" layoutX="99.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -24,11 +22,9 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="story1" layoutX="200.0" layoutY="185.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="My Cool Grandparents" />
-            <Button fx:id="story2" layoutX="200.0" layoutY="258.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="WackyTown" />
-            <Button fx:id="story3" layoutX="200.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="150.0" text="Our Class Project" />
-            <Circle fill="DODGERBLUE" layoutX="54.0" layoutY="506.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle2" fill="DODGERBLUE" layoutX="546.0" layoutY="54.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button fx:id="story1" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="My Cool Grandparents" />
+            <Button fx:id="story2" layoutX="270.0" layoutY="305.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="WackyTown" />
+            <Button fx:id="story3" layoutX="270.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="150.0" text="Our Class Project" />
          </children>
       </AnchorPane>
    </center>
