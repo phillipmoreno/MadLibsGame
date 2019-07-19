@@ -45,8 +45,6 @@ public class MadLibsMainMenuController implements Initializable {
 	@FXML
 	void handleButtonAction(ActionEvent event) {
 		if (event.getSource() == story1) {
-		
-		} else if (event.getSource() == story2) {
 			try {
 				// FXMLLoader object is created to load in fxml file
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsStory1.fxml"));
@@ -65,6 +63,9 @@ public class MadLibsMainMenuController implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		
+		} else if (event.getSource() == story2) {
+		
 
 		} else if (event.getSource() == story3) {
 
