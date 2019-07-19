@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsOutput2Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibs2Controller">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: MistyRose;" BorderPane.alignment="CENTER">
          <children>
@@ -84,7 +83,7 @@
                   <Font name="Microsoft New Tai Lue Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="469.0" layoutY="505.0" mnemonicParsing="false" onAction="#close" prefHeight="41.0" prefWidth="64.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT" textFill="WHITE">
+            <Button fx:id="close" layoutX="469.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="41.0" prefWidth="64.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

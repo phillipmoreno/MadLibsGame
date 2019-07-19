@@ -1,8 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class MadLibsOutput2Controller {
+public class MadLibs2Controller {
 
     @FXML
     private TextField nameTF;
@@ -33,9 +35,14 @@ public class MadLibsOutput2Controller {
 
     @FXML
     private TextField liquidTF;
+    
+    @FXML
+    private Button close;
 
     @FXML
-    void close(ActionEvent event) {
+    void closeStage(ActionEvent event) {
+    	Stage stage = (Stage) close.getScene().getWindow();
+		stage.close();
 
     }
 
