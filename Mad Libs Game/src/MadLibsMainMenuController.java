@@ -73,7 +73,7 @@ public class MadLibsMainMenuController implements Initializable {
 				// Stage object is created
 				Stage stage = new Stage();
 				// Stage title is set
-				stage.setTitle("WackyTown");
+				stage.setTitle("A New Sport");
 				// Scene object is created and set with the Parent object as a parameter
 				stage.setScene(new Scene(root));
 				// The Stage icon is set to a .png image
