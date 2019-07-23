@@ -16,12 +16,12 @@
                   <Font name="Microsoft YaHei Light" size="41.0" />
                </font>
             </Label>
-            <Button fx:id="menuButton" layoutX="58.0" layoutY="505.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="41.0" prefWidth="115.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="MAIN MENU">
+            <Button fx:id="menuButton" layoutX="15.0" layoutY="505.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="MAIN MENU">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" layoutX="469.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="41.0" prefWidth="92.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT">
+            <Button fx:id="exitButton" layoutX="496.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

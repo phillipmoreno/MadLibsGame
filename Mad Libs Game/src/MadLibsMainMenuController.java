@@ -98,7 +98,24 @@ public class MadLibsMainMenuController implements Initializable {
 			}
 
 		} else if (event.getSource() == story3) {
-
+			try {
+				// FXMLLoader object is created to load in fxml file
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsStory3.fxml"));
+				// Parent object is created and set as a loader
+				Parent root = (Parent) loader.load();
+				// Stage object is created
+				Stage stage = new Stage();
+				// Stage title is set
+				stage.setTitle("Our Class Project");
+				// Scene object is created and set with the Parent object as a parameter
+				stage.setScene(new Scene(root));
+				// The Stage icon is set to a .png image
+				stage.getIcons().add(new Image("MadLibsLogo.png"));
+				// Stage is displayed
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
