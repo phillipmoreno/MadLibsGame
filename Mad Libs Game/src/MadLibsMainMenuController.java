@@ -28,15 +28,24 @@ public class MadLibsMainMenuController implements Initializable {
 
 	@FXML
 	private Button story3;
-	
+
+	@FXML
+	private Button exit;
+
+	@FXML
+	void closeProgram(ActionEvent event) {
+		System.exit(0);
+	}
+
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
 	DropShadow shadow2 = new DropShadow();
 	DropShadow shadow3 = new DropShadow();
+	DropShadow shadow4 = new DropShadow();
 
 	// Circle object created for PathTransition
-	Circle circle = new Circle(9);
-	
+	Circle circle = new Circle(9.4);
+
 	// PathTransition objects created for animation
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
@@ -44,6 +53,8 @@ public class MadLibsMainMenuController implements Initializable {
 
 	@FXML
 	void handleButtonAction(ActionEvent event) {
+		Stage menu = (Stage) exit.getScene().getWindow();
+    	menu.close();
 		if (event.getSource() == story1) {
 			try {
 				// FXMLLoader object is created to load in fxml file
@@ -63,7 +74,7 @@ public class MadLibsMainMenuController implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		
+
 		} else if (event.getSource() == story2) {
 			try {
 				// FXMLLoader object is created to load in fxml file
@@ -92,9 +103,12 @@ public class MadLibsMainMenuController implements Initializable {
 	@FXML
 	void hovered(MouseEvent event) {
 		shadow1.setColor(Color.BLUE);
+		shadow1.setSpread(0.4);
 		shadow2.setColor(Color.RED);
+		shadow2.setSpread(0.4);
 		shadow3.setColor(Color.GOLD);
-		
+		shadow3.setSpread(0.4);
+
 		if (event.getSource() == story1) {
 			story1.setEffect(shadow1);
 			transition1.stop();
@@ -124,9 +138,9 @@ public class MadLibsMainMenuController implements Initializable {
 		transition2.setNode(story2);
 		transition3.setNode(story3);
 
-		transition1.setDuration(Duration.seconds(2));
-		transition2.setDuration(Duration.seconds(2));
-		transition3.setDuration(Duration.seconds(2));
+		transition1.setDuration(Duration.seconds(1.2));
+		transition2.setDuration(Duration.seconds(1.2));
+		transition3.setDuration(Duration.seconds(1.2));
 
 		transition1.setPath(circle);
 		transition2.setPath(circle);

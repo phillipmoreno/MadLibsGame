@@ -50,6 +50,8 @@ public class MadLibs1Controller {
 
 	@FXML
 	void openNewStage(ActionEvent event) {
+		Stage story1 = (Stage) close.getScene().getWindow();
+    	story1.close();
 		// String objects are created and used to retrieve input from every text field
 		String city1 = cityTF1.getText();
 		String city2 = cityTF2.getText();
