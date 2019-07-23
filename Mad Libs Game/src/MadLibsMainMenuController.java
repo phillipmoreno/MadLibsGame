@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -45,6 +46,7 @@ public class MadLibsMainMenuController implements Initializable {
 
 	// Circle object created for PathTransition
 	Circle circle = new Circle(9.4);
+	Rectangle rectangle = new Rectangle(20, 10);
 
 	// PathTransition objects created for animation
 	PathTransition transition1 = new PathTransition();
@@ -142,9 +144,9 @@ public class MadLibsMainMenuController implements Initializable {
 		transition2.setDuration(Duration.seconds(1.2));
 		transition3.setDuration(Duration.seconds(1.2));
 
-		transition1.setPath(circle);
+		transition1.setPath(rectangle);
 		transition2.setPath(circle);
-		transition3.setPath(circle);
+		transition3.setPath(rectangle);
 
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
