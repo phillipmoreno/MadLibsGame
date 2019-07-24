@@ -10,28 +10,27 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-
 public class MadLibsOutput3Controller {
 
-    @FXML
-    private TextArea output;
+	@FXML
+	private TextArea output;
 
-    @FXML
-    private ImageView logo;
+	@FXML
+	private ImageView logo;
 
-    @FXML
-    private Button exit;
-    
-    @FXML
-    void closeProgram(ActionEvent event) {
-    	System.exit(0);
-    }
+	@FXML
+	private Button exit;
 
-    @FXML
-    void returnToMenu(ActionEvent event) {
-      	Stage stage = (Stage) exit.getScene().getWindow();
-    	stage.close();
-    	try {
+	@FXML
+	void closeProgram(ActionEvent event) {
+		System.exit(0);
+	}
+
+	@FXML
+	void openMainMenu(ActionEvent event) {
+		Stage stage = (Stage) exit.getScene().getWindow();
+		stage.close();
+		try {
 			// FXMLLoader object is created to load in fxml file
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsMainMenu.fxml"));
 			// Parent object is created and set as a loader
@@ -49,6 +48,16 @@ public class MadLibsOutput3Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    }
+	}
 
+	public void setTextArea(String animal, String adjective, String color, String noun1, String food, String plant,
+			String noun2, String verb, String noise, String exclamation) {
+		output.setText("This year our class is doing a special science project. We have a(n) " + animal
+				+ " that we are taking care of. It is very " + adjective + " and it has " + color
+				+ " eyes. It lives in a(n) " + noun1 + " in the back of our classroom. We feed it " + food + " and "
+				+ plant + " every day, but I think it really wants to eat my " + noun2 + ". Everyone likes our "
+				+ animal + ".\r\n" + "\r\n" + "One day, the " + animal + " got out of its cage and started " + verb
+				+ " all around the room. It made a loud " + noise + ". I think it was trying to say, “" + exclamation
+				+ "!”");
+	}
 }

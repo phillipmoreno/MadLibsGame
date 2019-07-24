@@ -14,9 +14,6 @@ import javafx.stage.Stage;
 public class MadLibs3Controller {
 
     @FXML
-    private Label exclamationTF;
-
-    @FXML
     private TextField animalTF;
 
     @FXML
@@ -42,6 +39,9 @@ public class MadLibs3Controller {
 
     @FXML
     private TextField nounTF2;
+    
+    @FXML
+    private TextField exclamationTF;
 
     @FXML
     private Button exit;
@@ -55,21 +55,36 @@ public class MadLibs3Controller {
     void openNewStage(ActionEvent event) {
        	Stage story3 = (Stage) exit.getScene().getWindow();
     	story3.close();
+    	String animal = animalTF.getText();
+    	String adjective = adjectiveTF.getText();
+    	String color = colorTF.getText();
+    	String noun1 = nounTF1.getText();
+    	String food = foodTF.getText();
+    	String plant = plantTF.getText();
+     	String noun2 = nounTF2.getText();
+    	String verb = verbTF.getText();
+    	String noise = noiseTF.getText();
+    	String exclamation = exclamationTF.getText();
+    	
     	try {
 			// FXMLLoader object is created to load in fxml file
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput3.fxml"));
 			// Parent object is created and set as a loader
 			Parent root = (Parent) loader.load();
+			// MadLibOutputController object is created and controller is retrieved
+			MadLibsOutput3Controller mloc = loader.getController();
+			// the setTextArea function is called
+			mloc.setTextArea(animal, adjective, color, noun1, food, plant, noun2, verb, noise, exclamation);
 			// Stage object is created
-			Stage stage = new Stage();
+			Stage Output = new Stage();
 			// Stage title is set
-			stage.setTitle("A New Sport");
+			Output.setTitle("Our Class Project");
 			// Scene object is created and set with the Parent object as a parameter
-			stage.setScene(new Scene(root));
+			Output.setScene(new Scene(root));
 			// The Stage icon is set to a .png image
-			stage.getIcons().add(new Image("MadLibsLogo.png"));
+			Output.getIcons().add(new Image("MadLibsLogo.png"));
 			// Stage is displayed
-			stage.show();
+			Output.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
