@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsMainMenuController">
@@ -39,6 +40,9 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+            <Polygon fx:id="triangle1" fill="#fa0000" layoutX="99.0" layoutY="245.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="triangle2" fill="#0084ff" layoutX="99.0" layoutY="345.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="triangle3" fill="#f5e61c" layoutX="99.0" layoutY="445.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>
