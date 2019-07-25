@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.PathTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -29,6 +31,15 @@ public class MadLibsMainMenuController implements Initializable {
 
 	@FXML
 	private Button story3;
+	
+	@FXML
+    private Polygon triangle1;
+
+    @FXML
+    private Polygon triangle2;
+
+    @FXML
+    private Polygon triangle3;
 
 	@FXML
 	private Button exit;
@@ -52,6 +63,10 @@ public class MadLibsMainMenuController implements Initializable {
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
 	PathTransition transition3 = new PathTransition();
+	
+	RotateTransition transition4 = new RotateTransition(Duration.seconds(1.2), triangle1);
+	RotateTransition transition5 = new RotateTransition(Duration.seconds(1.2), triangle2);
+	RotateTransition transition6 = new RotateTransition(Duration.seconds(1.2), triangle3);
 
 	@FXML
 	void handleButtonAction(ActionEvent event) {
@@ -131,22 +146,28 @@ public class MadLibsMainMenuController implements Initializable {
 		if (event.getSource() == story1) {
 			story1.setEffect(shadow1);
 			transition1.stop();
+			transition4.stop();
 		} else if (event.getSource() == story2) {
 			story2.setEffect(shadow2);
 			transition2.stop();
+			transition5.stop();
 		} else if (event.getSource() == story3) {
 			story3.setEffect(shadow3);
 			transition3.stop();
+			transition6.stop();
 		}
 	}
 
 	@FXML
 	void play(MouseEvent event) {
 		transition1.play();
+		transition4.play();
 		story1.setEffect(null);
 		transition2.play();
+		transition5.play();
 		story2.setEffect(null);
 		transition3.play();
+		transition6.play();
 		story3.setEffect(null);
 
 	}
@@ -156,21 +177,44 @@ public class MadLibsMainMenuController implements Initializable {
 		transition1.setNode(story1);
 		transition2.setNode(story2);
 		transition3.setNode(story3);
-
+		transition4.setNode(triangle1);
+		transition5.setNode(triangle2);
+		transition6.setNode(triangle3);
+		
+		
+		transition4.setByAngle(360);
+		transition5.setByAngle(360);
+		transition6.setByAngle(360);
+		
+		transition4.setAutoReverse(false);
+		transition5.setAutoReverse(false);
+		transition6.setAutoReverse(false);
+	
 		transition1.setDuration(Duration.seconds(1.2));
 		transition2.setDuration(Duration.seconds(1.2));
 		transition3.setDuration(Duration.seconds(1.2));
+	
 
 		transition1.setPath(rectangle);
 		transition2.setPath(circle);
 		transition3.setPath(rectangle);
-
+	
+		
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
+		transition4.setCycleCount(RotateTransition.INDEFINITE);
+		transition5.setCycleCount(RotateTransition.INDEFINITE);
+		transition6.setCycleCount(RotateTransition.INDEFINITE);
+		
 
 		transition1.play();
 		transition2.play();
 		transition3.play();
+		transition4.play();
+		transition5.play();
+		transition6.play();
+		
+
 	}
 }
