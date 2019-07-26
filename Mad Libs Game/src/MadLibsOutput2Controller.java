@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
 
 public class MadLibsOutput2Controller {
 
@@ -20,12 +21,15 @@ public class MadLibsOutput2Controller {
 
 	@FXML
 	private TextArea output;
+	
+    @FXML
+    private ImageView madLibsLogo;
 
 	@FXML
 	void closeProgram(ActionEvent event) {
 		System.exit(0);
 	}
-
+	
     @FXML
     void openMainMenu(ActionEvent event) {
       	Stage stage = (Stage) exitButton.getScene().getWindow();
@@ -53,7 +57,7 @@ public class MadLibsOutput2Controller {
 
 	public void setTextArea(String name, String adjective1, String noun, String expression, String number,
 			String adjective2, String school, String restaurant, String food, String liquid) {
-		output.setText(name + " and I decided to try out the newest sport at" + school + ". It's called " + adjective1
+		output.setText(name + " and I decided to try out the newest sport at " + school + ". It's called " + adjective1
 				+ " " + noun + ". The object of the game is to kick a(n) " + adjective1 + " " + noun
 				+ " all the way to the end of the field. Every time you do, the fans yell “" + expression
 				+ "!” and you get " + number + " points. The person with the most points wins.\n\n" + name
