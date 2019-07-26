@@ -25,24 +25,24 @@
             </Label>
             <Button fx:id="story1" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="WackyTown">
                <font>
-                  <Font name="Segoe Print" size="18.0" />
+                  <Font name="Segoe Print Bold" size="18.0" />
                </font></Button>
             <Button fx:id="story2" layoutX="270.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="A New Sport">
                <font>
-                  <Font name="Candara" size="18.0" />
+                  <Font name="Candara Bold" size="18.0" />
                </font></Button>
             <Button fx:id="story3" layoutX="270.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="Our Class Project">
                <font>
-                  <Font name="Californian FB" size="20.0" />
+                  <Font name="Segoe Print Bold" size="17.0" />
                </font></Button>
             <Button fx:id="exit" layoutX="469.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="41.0" prefWidth="64.0" style="-fx-background-color: red; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Polygon fx:id="triangle1" fill="#fa0000" layoutX="99.0" layoutY="245.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
-            <Polygon fx:id="triangle2" fill="#0084ff" layoutX="99.0" layoutY="345.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
-            <Polygon fx:id="triangle3" fill="#f5e61c" layoutX="99.0" layoutY="445.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -45.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="triangle2" fill="#fa0000" layoutX="99.0" layoutY="330.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -39.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="triangle1" fill="#0084ff" layoutX="99.0" layoutY="230.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -39.0" stroke="BLACK" strokeType="INSIDE" />
+            <Polygon fx:id="triangle3" fill="#f5e61c" layoutX="99.0" layoutY="430.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -40.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>
