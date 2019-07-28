@@ -68,16 +68,46 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="animalTF" layoutX="265.0" layoutY="103.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="adjectiveTF" layoutX="265.0" layoutY="143.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="colorTF" layoutX="199.0" layoutY="183.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="nounTF1" layoutX="253.0" layoutY="223.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="foodTF" layoutX="265.0" layoutY="263.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="plantTF" layoutX="256.0" layoutY="303.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="verbTF" layoutX="333.0" layoutY="383.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="noiseTF" layoutX="265.0" layoutY="423.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="nounTF2" layoutX="270.0" layoutY="343.0" prefHeight="30.0" prefWidth="230.0" />
-            <TextField fx:id="exclamationTF" layoutX="304.0" layoutY="463.0" prefHeight="30.0" prefWidth="230.0" />
+            <TextField fx:id="animalTF" layoutX="265.0" layoutY="103.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="adjectiveTF" layoutX="265.0" layoutY="143.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="colorTF" layoutX="199.0" layoutY="183.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="nounTF1" layoutX="253.0" layoutY="223.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="foodTF" layoutX="265.0" layoutY="263.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="plantTF" layoutX="256.0" layoutY="303.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="verbTF" layoutX="333.0" layoutY="383.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="noiseTF" layoutX="265.0" layoutY="423.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="nounTF2" layoutX="270.0" layoutY="343.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="exclamationTF" layoutX="304.0" layoutY="463.0" prefHeight="30.0" prefWidth="230.0">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
             <Button layoutX="45.0" layoutY="505.0" mnemonicParsing="false" onAction="#openNewStage" prefHeight="41.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="LIB IT!!!">
                <font>
                   <Font name="Microsoft New Tai Lue Bold" size="18.0" />
