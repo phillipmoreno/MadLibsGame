@@ -63,7 +63,7 @@ public class MadLibsMainMenuController implements Initializable {
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
 	PathTransition transition3 = new PathTransition();
-
+	
 	RotateTransition transition4 = new RotateTransition(Duration.seconds(1.2), triangle1);
 	RotateTransition transition5 = new RotateTransition(Duration.seconds(1.2), triangle2);
 	RotateTransition transition6 = new RotateTransition(Duration.seconds(1.2), triangle3);
