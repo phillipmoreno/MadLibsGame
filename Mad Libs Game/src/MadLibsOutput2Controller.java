@@ -1,23 +1,39 @@
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.animation.PathTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
-public class MadLibsOutput2Controller {
+public class MadLibsOutput2Controller implements Initializable {
+
+    @FXML
+    private Label title;
+	
+	@FXML
+	private Button menu;
 
 	@FXML
-	private Button menuButton;
-
-	@FXML
-	private Button exitButton;
+	private Button exit;
 
 	@FXML
 	private TextArea output;
@@ -25,14 +41,48 @@ public class MadLibsOutput2Controller {
     @FXML
     private ImageView madLibsLogo;
 
-	@FXML
+    Circle circle = new Circle(9.4);
+	Rectangle rectangle = new Rectangle(16, 8);
+	
+	PathTransition transition1 = new PathTransition();
+	PathTransition transition2 = new PathTransition();
+	PathTransition transition3 = new PathTransition();
+	
+	// DropShadow object created for animation
+	DropShadow shadow1 = new DropShadow();
+	DropShadow shadow2 = new DropShadow();
+    @FXML
 	void closeProgram(ActionEvent event) {
 		System.exit(0);
 	}
 	
     @FXML
+    void hovered(MouseEvent event) {
+    	shadow1.setColor(Color.CORNFLOWERBLUE);
+    	shadow1.setSpread(0.5);
+    	shadow2.setColor(Color.CORNFLOWERBLUE);
+    	shadow2.setSpread(0.5);
+    	
+    	if(event.getSource() == menu) {
+    		transition1.stop();
+    		menu.setEffect(shadow1);
+    	}else if(event.getSource() == exit) {
+    		transition2.stop();
+    		exit.setEffect(shadow2);
+    	}
+    }
+	
+    @FXML
+    void play(MouseEvent event) {
+    	transition1.play();
+    	transition2.play();
+    	menu.setEffect(null);
+    	exit.setEffect(null);
+    }
+	
+    @FXML
     void openMainMenu(ActionEvent event) {
-      	Stage stage = (Stage) exitButton.getScene().getWindow();
+      	Stage stage = (Stage) exit.getScene().getWindow();
     	stage.close();
     	try {
 			// FXMLLoader object is created to load in fxml file
@@ -68,6 +118,33 @@ public class MadLibsOutput2Controller {
 				+ "!” I won the game!\n\nNow I am the champion of " + school + "! I didn't want " + name
 				+ " to feel badly, so I treated " + name + " to a trip to restaurant for a(n) " + food + " sundae with "
 				+ liquid + " on top!");
+
+	}
+	
+	public void initialize(URL url, ResourceBundle rb) {
+		transition1.setNode(menu);
+		transition2.setNode(exit);
+		transition3.setNode(title);
+		
+		transition1.setPath(circle);
+		transition2.setPath(circle);
+		transition3.setPath(rectangle);
+		
+		transition1.setDuration(Duration.seconds(1.2));
+		transition2.setDuration(Duration.seconds(1.2));
+		transition3.setDuration(Duration.seconds(1.9));
+		
+		transition1.setAutoReverse(true);
+		transition2.setAutoReverse(true);
+		
+		
+		transition1.setCycleCount(PathTransition.INDEFINITE);
+		transition2.setCycleCount(PathTransition.INDEFINITE);
+		transition3.setCycleCount(PathTransition.INDEFINITE);
+
+		transition1.play();
+		transition2.play();
+		transition3.play();
 
 	}
 
