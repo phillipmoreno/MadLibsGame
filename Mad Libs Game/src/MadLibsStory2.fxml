@@ -13,7 +13,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: MistyRose;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="115.0" fitWidth="400.0" layoutX="130.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="120.0" fitWidth="380.0" layoutX="128.0" pickOnBounds="true">
                <image>
                   <Image url="@MadLibsLogo2.png" />
                </image>

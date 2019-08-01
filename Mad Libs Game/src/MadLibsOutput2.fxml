@@ -23,7 +23,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" layoutX="496.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT">
+            <Button fx:id="exitButton" layoutX="496.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
