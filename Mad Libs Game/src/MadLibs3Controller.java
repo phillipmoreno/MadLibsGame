@@ -1,15 +1,24 @@
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class MadLibs3Controller {
+public class MadLibs3Controller implements Initializable {
 
 	@FXML
 	private TextField animalTF;
@@ -41,14 +50,49 @@ public class MadLibs3Controller {
 	@FXML
 	private TextField exclamationTF;
 
+    @FXML
+    private Button menu;
+	
 	@FXML
 	private Button exit;
-
+	
+	Circle circle = new Circle(4.5);
+	
+	PathTransition transition1 = new PathTransition();
+	PathTransition transition2 = new PathTransition();
+	
+	// DropShadow object created for animation
+	DropShadow shadow1 = new DropShadow();
+	DropShadow shadow2 = new DropShadow();
+	
 	@FXML
 	void closeProgram(ActionEvent event) {
 		System.exit(0);
 	}
 
+    @FXML
+    void hovered(MouseEvent event) {
+    	shadow1.setColor(Color.CORNFLOWERBLUE);
+    	shadow1.setSpread(0.5);
+    	shadow2.setColor(Color.CORNFLOWERBLUE);
+    	shadow2.setSpread(0.5);
+    	
+    	if(event.getSource() == menu) {
+    		transition1.stop();
+    		menu.setEffect(shadow1);
+    	}else if(event.getSource() == exit) {
+    		transition2.stop();
+    		exit.setEffect(shadow2);
+    	}
+    }
+    
+    @FXML
+    void play(MouseEvent event) {
+     	transition1.play();
+    	transition2.play();
+    	menu.setEffect(null);
+    	exit.setEffect(null);
+    }
 	@FXML
 	void openNewStage(ActionEvent event) {
 		Stage story3 = (Stage) exit.getScene().getWindow();
@@ -87,5 +131,26 @@ public class MadLibs3Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void initialize(URL url, ResourceBundle rb) {
+		transition1.setNode(menu);
+		transition2.setNode(exit);
+		
+		transition1.setPath(circle);
+		transition2.setPath(circle);
+		
+		transition1.setDuration(Duration.seconds(1.2));
+		transition2.setDuration(Duration.seconds(1.2));
+		
+		transition1.setAutoReverse(true);
+		transition2.setAutoReverse(true);
+
+		transition1.setCycleCount(PathTransition.INDEFINITE);
+		transition2.setCycleCount(PathTransition.INDEFINITE);
+
+		transition1.play();
+		transition2.play();
+
 	}
 }

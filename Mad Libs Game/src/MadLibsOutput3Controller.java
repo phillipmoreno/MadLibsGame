@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.animation.PathTransition;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +12,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
@@ -31,6 +36,9 @@ public class MadLibsOutput3Controller implements Initializable {
     @FXML
     private Polygon triangle2;
 
+    @FXML
+    private Button menu;
+
 	@FXML
 	private Button exit;
 
@@ -38,6 +46,13 @@ public class MadLibsOutput3Controller implements Initializable {
 	
 	RotateTransition transition1 = new RotateTransition(Duration.seconds(1.2), triangle1);
 	RotateTransition transition2 = new RotateTransition(Duration.seconds(1.2), triangle2);
+	
+	PathTransition transition3 = new PathTransition();
+	PathTransition transition4 = new PathTransition();
+	
+	// DropShadow object created for animation
+	DropShadow shadow1 = new DropShadow();
+	DropShadow shadow2 = new DropShadow();
 	
 	@FXML
 	void closeProgram(ActionEvent event) {
@@ -79,21 +94,66 @@ public class MadLibsOutput3Controller implements Initializable {
 				+ "!”");
 	}
 	
+
+    @FXML
+    void hovered(MouseEvent event) {
+    	shadow1.setColor(Color.CORNFLOWERBLUE);
+    	shadow1.setSpread(0.5);
+    	shadow2.setColor(Color.CORNFLOWERBLUE);
+    	shadow2.setSpread(0.5);
+    	
+    	if(event.getSource() == menu) {
+    		transition1.stop();
+    		transition3.stop();
+    		menu.setEffect(shadow1);
+    		triangle1.setFill(Color.MEDIUMSPRINGGREEN);
+    	}else if(event.getSource() == exit) {
+    		transition2.stop();
+    		transition4.stop();
+    		exit.setEffect(shadow2);
+    		triangle2.setFill(Color.MEDIUMSPRINGGREEN);
+    	}
+    }
+	
+    @FXML
+    void play(MouseEvent event) {
+    	transition1.play();
+    	transition2.play();
+    	transition3.play();
+    	transition4.play();
+    	triangle1.setFill(Color.DODGERBLUE);
+    	triangle2.setFill(Color.DODGERBLUE);
+    	menu.setEffect(null);
+    	exit.setEffect(null);
+    }
+    
 	public void initialize(URL url, ResourceBundle rb) {
-
-
 		transition1.setNode(triangle1);
 		transition2.setNode(triangle2);
-
+		transition3.setNode(menu);
+		transition4.setNode(exit);
+		
 		transition1.setByAngle(360);
 		transition2.setByAngle(360);
 		
+		transition3.setPath(circle);
+		transition4.setPath(circle);
+		
+		transition3.setDuration(Duration.seconds(1.2));
+		transition4.setDuration(Duration.seconds(1.2));
+		
+		transition3.setAutoReverse(true);
+		transition4.setAutoReverse(true);
+		
 		transition1.setCycleCount(RotateTransition.INDEFINITE);
 		transition2.setCycleCount(RotateTransition.INDEFINITE);
+		transition3.setCycleCount(PathTransition.INDEFINITE);
+		transition4.setCycleCount(PathTransition.INDEFINITE);
 
 		transition1.play();
 		transition2.play();
-
+		transition3.play();
+		transition4.play();
 
 	}
 }

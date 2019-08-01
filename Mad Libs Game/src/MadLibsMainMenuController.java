@@ -54,7 +54,7 @@ public class MadLibsMainMenuController implements Initializable {
 	DropShadow shadow2 = new DropShadow();
 	DropShadow shadow3 = new DropShadow();
 	DropShadow shadow4 = new DropShadow();
-
+	
 	// Circle object created for PathTransition
 	Circle circle = new Circle(9.4);
 	Rectangle rectangle = new Rectangle(20, 10);
@@ -63,6 +63,7 @@ public class MadLibsMainMenuController implements Initializable {
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
 	PathTransition transition3 = new PathTransition();
+	PathTransition exitTransition = new PathTransition();
 	
 	RotateTransition transition4 = new RotateTransition(Duration.seconds(1.2), triangle1);
 	RotateTransition transition5 = new RotateTransition(Duration.seconds(1.2), triangle2);
@@ -142,6 +143,8 @@ public class MadLibsMainMenuController implements Initializable {
 		shadow2.setSpread(0.4);
 		shadow3.setColor(Color.GOLD);
 		shadow3.setSpread(0.4);
+		shadow4.setColor(Color.BLACK);
+		shadow4.setSpread(0.4);
 
 		if (event.getSource() == story1) {
 			story1.setEffect(shadow1);
@@ -158,6 +161,9 @@ public class MadLibsMainMenuController implements Initializable {
 			transition3.stop();
 			transition6.stop();
 			triangle3.setFill(Color.LIGHTGREEN);
+		}else if(event.getSource() == exit) {
+			exit.setEffect(shadow4);
+			exitTransition.stop();
 		}
 	}
 
@@ -175,7 +181,8 @@ public class MadLibsMainMenuController implements Initializable {
 		transition3.play();
 		transition6.play();
 		story3.setEffect(null);
-
+		exitTransition.play();
+		exit.setEffect(null);
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
@@ -186,7 +193,8 @@ public class MadLibsMainMenuController implements Initializable {
 		transition4.setNode(triangle1);
 		transition5.setNode(triangle2);
 		transition6.setNode(triangle3);
-
+		exitTransition.setNode(exit);
+		
 		transition4.setByAngle(360);
 		transition5.setByAngle(360);
 		transition6.setByAngle(360);
@@ -198,24 +206,28 @@ public class MadLibsMainMenuController implements Initializable {
 		transition1.setDuration(Duration.seconds(1.2));
 		transition2.setDuration(Duration.seconds(1.2));
 		transition3.setDuration(Duration.seconds(1.2));
-
+		exitTransition.setDuration(Duration.seconds(1.2));
+		
 		transition1.setPath(rectangle);
 		transition2.setPath(circle);
 		transition3.setPath(rectangle);
-
+		exitTransition.setPath(circle);
+		
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
 		transition4.setCycleCount(RotateTransition.INDEFINITE);
 		transition5.setCycleCount(RotateTransition.INDEFINITE);
 		transition6.setCycleCount(RotateTransition.INDEFINITE);
-
+		exitTransition.setCycleCount(PathTransition.INDEFINITE);
+		
 		transition1.play();
 		transition2.play();
 		transition3.play();
 		transition4.play();
 		transition5.play();
 		transition6.play();
+		exitTransition.play();
 
 	}
 }

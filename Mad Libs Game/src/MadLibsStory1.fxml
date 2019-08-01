@@ -103,7 +103,7 @@
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<ImageView fitHeight="115.0" fitWidth="400.0" layoutX="130.0" preserveRatio="true">
+				<ImageView fitHeight="124.0" fitWidth="380.0" layoutX="110.0">
 					<image>
 						<Image url="@MadLibsLogo2.png" />
 					</image>

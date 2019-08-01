@@ -21,12 +21,12 @@
                   <Font name="Maiandra GD" size="41.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="495.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="MAIN MENU">
+            <Button fx:id="menu" layoutX="70.0" layoutY="515.0" mnemonicParsing="false" onAction="#openMainMenu" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-background-color: white;" text="MAIN MENU">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="exit" layoutX="490.0" layoutY="494.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="42.0" prefWidth="96.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT">
+            <Button fx:id="exit" layoutX="506.0" layoutY="515.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="42.0" prefWidth="96.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-background-color: red;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

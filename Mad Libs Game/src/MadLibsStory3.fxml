@@ -108,12 +108,12 @@
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <Button layoutX="45.0" layoutY="505.0" mnemonicParsing="false" onAction="#openNewStage" prefHeight="41.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="LIB IT!!!">
+            <Button fx:id="menu" layoutX="65.0" layoutY="525.0" mnemonicParsing="false" onAction="#openNewStage" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="41.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: black;" text="LIB IT!!!">
                <font>
                   <Font name="Microsoft New Tai Lue Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="exit" layoutX="471.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="41.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT">
+            <Button fx:id="exit" layoutX="495.0" layoutY="525.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="41.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: red; -fx-border-color: black;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="Microsoft New Tai Lue Bold" size="18.0" />
                </font>
