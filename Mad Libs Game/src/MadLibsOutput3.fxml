@@ -26,12 +26,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="exit" layoutX="506.0" layoutY="515.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="42.0" prefWidth="96.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-background-color: red;" text="EXIT" textFill="WHITE">
+            <Button fx:id="exit" layoutX="510.0" layoutY="515.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-background-color: red;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <ImageView fx:id="logo" fitHeight="69.0" fitWidth="79.0" layoutX="455.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="60.0" fitWidth="60.0" layoutX="455.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@MadLibsLogo.png" />
                </image>

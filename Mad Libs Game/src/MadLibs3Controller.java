@@ -50,49 +50,50 @@ public class MadLibs3Controller implements Initializable {
 	@FXML
 	private TextField exclamationTF;
 
-    @FXML
-    private Button menu;
-	
+	@FXML
+	private Button menu;
+
 	@FXML
 	private Button exit;
-	
+
 	Circle circle = new Circle(4.5);
-	
+
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
-	
+
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
 	DropShadow shadow2 = new DropShadow();
-	
+
 	@FXML
 	void closeProgram(ActionEvent event) {
 		System.exit(0);
 	}
 
-    @FXML
-    void hovered(MouseEvent event) {
-    	shadow1.setColor(Color.CORNFLOWERBLUE);
-    	shadow1.setSpread(0.5);
-    	shadow2.setColor(Color.CORNFLOWERBLUE);
-    	shadow2.setSpread(0.5);
-    	
-    	if(event.getSource() == menu) {
-    		transition1.stop();
-    		menu.setEffect(shadow1);
-    	}else if(event.getSource() == exit) {
-    		transition2.stop();
-    		exit.setEffect(shadow2);
-    	}
-    }
-    
-    @FXML
-    void play(MouseEvent event) {
-     	transition1.play();
-    	transition2.play();
-    	menu.setEffect(null);
-    	exit.setEffect(null);
-    }
+	@FXML
+	void hovered(MouseEvent event) {
+		shadow1.setColor(Color.CORNFLOWERBLUE);
+		shadow1.setSpread(0.5);
+		shadow2.setColor(Color.CORNFLOWERBLUE);
+		shadow2.setSpread(0.5);
+
+		if (event.getSource() == menu) {
+			transition1.stop();
+			menu.setEffect(shadow1);
+		} else if (event.getSource() == exit) {
+			transition2.stop();
+			exit.setEffect(shadow2);
+		}
+	}
+
+	@FXML
+	void play(MouseEvent event) {
+		transition1.play();
+		transition2.play();
+		menu.setEffect(null);
+		exit.setEffect(null);
+	}
+
 	@FXML
 	void openNewStage(ActionEvent event) {
 		Stage story3 = (Stage) exit.getScene().getWindow();
@@ -107,9 +108,9 @@ public class MadLibs3Controller implements Initializable {
 		String verb = verbTF.getText();
 		String noise = noiseTF.getText();
 		String exclamation = exclamationTF.getText();
-	
+
 		try {
-			
+
 			// FXMLLoader object is created to load in fxml file
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput3.fxml"));
 			// Parent object is created and set as a loader
@@ -132,17 +133,17 @@ public class MadLibs3Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(menu);
 		transition2.setNode(exit);
-		
+
 		transition1.setPath(circle);
 		transition2.setPath(circle);
-		
+
 		transition1.setDuration(Duration.seconds(1.2));
 		transition2.setDuration(Duration.seconds(1.2));
-		
+
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
 

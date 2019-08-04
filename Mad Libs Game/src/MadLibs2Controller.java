@@ -1,16 +1,25 @@
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class MadLibs2Controller {
+public class MadLibs2Controller implements Initializable {
 
     @FXML
     private TextField nameTF;
@@ -43,7 +52,20 @@ public class MadLibs2Controller {
     private TextField liquidTF;
     
     @FXML
+    private Button libIt;
+    
+    @FXML
     private Button close;
+    
+    Circle circle = new Circle(4.5);
+	
+	PathTransition transition1 = new PathTransition();
+	PathTransition transition2 = new PathTransition();
+	PathTransition transition3 = new PathTransition();
+	
+	// DropShadow object created for animation
+	DropShadow shadow1 = new DropShadow();
+	DropShadow shadow2 = new DropShadow();
 
     @FXML
     void closeStage(ActionEvent event) {
@@ -90,4 +112,47 @@ public class MadLibs2Controller {
 		}
     }
 
+    @FXML
+    void hovered(MouseEvent event) {
+    	shadow1.setColor(Color.CORNFLOWERBLUE);
+    	shadow1.setSpread(0.5);
+    	shadow2.setColor(Color.CORNFLOWERBLUE);
+    	shadow2.setSpread(0.5);
+    	
+    	if(event.getSource() == libIt) {
+    		transition1.stop();
+    		libIt.setEffect(shadow1);
+    	}else if(event.getSource() == close) {
+    		transition2.stop();
+    		close.setEffect(shadow2);
+    	}
+    }
+    
+    @FXML
+    void play(MouseEvent event) {
+    	transition1.play();
+    	transition2.play();
+    	libIt.setEffect(null);
+    	close.setEffect(null);
+    }
+
+    public void initialize(URL url, ResourceBundle rb) {
+		transition1.setNode(libIt);
+		transition2.setNode(close);
+
+		transition1.setPath(circle);
+		transition2.setPath(circle);
+		
+		transition1.setDuration(Duration.seconds(1.2));
+		transition2.setDuration(Duration.seconds(1.2));
+
+		transition1.setAutoReverse(true);
+		transition2.setAutoReverse(true);
+				
+		transition1.setCycleCount(PathTransition.INDEFINITE);
+		transition2.setCycleCount(PathTransition.INDEFINITE);
+
+		transition1.play();
+		transition2.play();
+	}
 }
