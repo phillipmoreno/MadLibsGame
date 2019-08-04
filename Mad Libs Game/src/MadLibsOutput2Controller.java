@@ -21,12 +21,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
 public class MadLibsOutput2Controller implements Initializable {
 
-    @FXML
-    private Label title;
-	
+	@FXML
+	private Label title;
+
 	@FXML
 	private Button menu;
 
@@ -35,54 +34,55 @@ public class MadLibsOutput2Controller implements Initializable {
 
 	@FXML
 	private TextArea output;
-	
-    @FXML
-    private ImageView madLibsLogo;
 
-    Circle circle = new Circle(9.4);
+	@FXML
+	private ImageView madLibsLogo;
+
+	Circle circle = new Circle(9.4);
 	Rectangle rectangle = new Rectangle(16, 8);
-	
+
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();
 	PathTransition transition3 = new PathTransition();
-	
+
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
 	DropShadow shadow2 = new DropShadow();
-    @FXML
+
+	@FXML
 	void closeProgram(ActionEvent event) {
 		System.exit(0);
 	}
-	
-    @FXML
-    void hovered(MouseEvent event) {
-    	shadow1.setColor(Color.CORNFLOWERBLUE);
-    	shadow1.setSpread(0.5);
-    	shadow2.setColor(Color.CORNFLOWERBLUE);
-    	shadow2.setSpread(0.5);
-    	
-    	if(event.getSource() == menu) {
-    		transition1.stop();
-    		menu.setEffect(shadow1);
-    	}else if(event.getSource() == exit) {
-    		transition2.stop();
-    		exit.setEffect(shadow2);
-    	}
-    }
-	
-    @FXML
-    void play(MouseEvent event) {
-    	transition1.play();
-    	transition2.play();
-    	menu.setEffect(null);
-    	exit.setEffect(null);
-    }
-	
-    @FXML
-    void openMainMenu(ActionEvent event) {
-      	Stage stage = (Stage) exit.getScene().getWindow();
-    	stage.close();
-    	try {
+
+	@FXML
+	void hovered(MouseEvent event) {
+		shadow1.setColor(Color.CORNFLOWERBLUE);
+		shadow1.setSpread(0.5);
+		shadow2.setColor(Color.CORNFLOWERBLUE);
+		shadow2.setSpread(0.5);
+
+		if (event.getSource() == menu) {
+			transition1.stop();
+			menu.setEffect(shadow1);
+		} else if (event.getSource() == exit) {
+			transition2.stop();
+			exit.setEffect(shadow2);
+		}
+	}
+
+	@FXML
+	void play(MouseEvent event) {
+		transition1.play();
+		transition2.play();
+		menu.setEffect(null);
+		exit.setEffect(null);
+	}
+
+	@FXML
+	void openMainMenu(ActionEvent event) {
+		Stage stage = (Stage) exit.getScene().getWindow();
+		stage.close();
+		try {
 			// FXMLLoader object is created to load in fxml file
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsMainMenu.fxml"));
 			// Parent object is created and set as a loader
@@ -101,7 +101,7 @@ public class MadLibsOutput2Controller implements Initializable {
 			e.printStackTrace();
 		}
 
-    }
+	}
 
 	public void setTextArea(String name, String adjective1, String noun, String expression, String number,
 			String adjective2, String school, String restaurant, String food, String liquid) {
@@ -110,32 +110,32 @@ public class MadLibsOutput2Controller implements Initializable {
 				+ " all the way to the end of the field. Every time you do, the fans yell “" + expression
 				+ "!” and you get " + number + " points. The person with the most points wins.\n\n" + name
 				+ " started and kicked the " + noun
-				+ " halfway down the field. What a shot! Then it was my turn. I picked up the " + noun + ", took aim, and missed completely. I felt so "
-				+ adjective2 + "! I tried again, and this time I kicked the " + noun
+				+ " halfway down the field. What a shot! Then it was my turn. I picked up the " + noun
+				+ ", took aim, and missed completely. I felt so " + adjective2
+				+ "! I tried again, and this time I kicked the " + noun
 				+ " all the way to the end of the field. The fans in the stands hollered “" + expression
 				+ "!” I won the game!\n\nNow I am the champion of " + school + "! I didn't want " + name
 				+ " to feel badly, so I treated " + name + " to a trip to restaurant for a(n) " + food + " sundae with "
 				+ liquid + " on top!");
 
 	}
-	
+
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(menu);
 		transition2.setNode(exit);
 		transition3.setNode(title);
-		
+
 		transition1.setPath(circle);
 		transition2.setPath(circle);
 		transition3.setPath(rectangle);
-		
+
 		transition1.setDuration(Duration.seconds(1.2));
 		transition2.setDuration(Duration.seconds(1.2));
 		transition3.setDuration(Duration.seconds(1.9));
-		
+
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
-		
-		
+
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
