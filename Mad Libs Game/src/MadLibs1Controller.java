@@ -1,9 +1,7 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
-
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -118,6 +118,15 @@ public class MadLibs1Controller implements Initializable {
 	}
 
 	@FXML
+	void keyPressed(KeyEvent event) {
+		if (event.getCode().equals(KeyCode.ENTER)) {
+			libIt.fire();
+		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
+			close.fire();
+		}
+	}
+	
+	@FXML
 	void hovered(MouseEvent event) {
 		shadow1.setColor(Color.CORNFLOWERBLUE);
 		shadow1.setSpread(0.5);
@@ -140,6 +149,7 @@ public class MadLibs1Controller implements Initializable {
 		libIt.setEffect(null);
 		close.setEffect(null);
 	}
+	
 
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(libIt);
