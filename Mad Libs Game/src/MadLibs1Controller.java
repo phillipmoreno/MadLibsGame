@@ -125,7 +125,7 @@ public class MadLibs1Controller implements Initializable {
 			close.fire();
 		}
 	}
-	
+
 	@FXML
 	void hovered(MouseEvent event) {
 		shadow1.setColor(Color.CORNFLOWERBLUE);
@@ -149,7 +149,6 @@ public class MadLibs1Controller implements Initializable {
 		libIt.setEffect(null);
 		close.setEffect(null);
 	}
-	
 
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(libIt);
