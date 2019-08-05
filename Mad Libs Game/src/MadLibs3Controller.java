@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -54,7 +56,7 @@ public class MadLibs3Controller implements Initializable {
 	private TextField exclamationTF;
 
 	@FXML
-	private Button menu;
+	private Button libIt;
 
 	@FXML
 	private Button exit;
@@ -80,9 +82,9 @@ public class MadLibs3Controller implements Initializable {
 		shadow2.setColor(Color.CORNFLOWERBLUE);
 		shadow2.setSpread(0.5);
 
-		if (event.getSource() == menu) {
+		if (event.getSource() == libIt) {
 			transition1.stop();
-			menu.setEffect(shadow1);
+			libIt.setEffect(shadow1);
 		} else if (event.getSource() == exit) {
 			transition2.stop();
 			exit.setEffect(shadow2);
@@ -93,7 +95,7 @@ public class MadLibs3Controller implements Initializable {
 	void play(MouseEvent event) {
 		transition1.play();
 		transition2.play();
-		menu.setEffect(null);
+		libIt.setEffect(null);
 		exit.setEffect(null);
 	}
 
@@ -145,8 +147,17 @@ public class MadLibs3Controller implements Initializable {
 		}
 	}
 
+	@FXML
+	void keyPressed(KeyEvent event) {
+		if (event.getCode().equals(KeyCode.ENTER)) {
+			libIt.fire();
+		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
+			exit.fire();
+		}
+	}
+
 	public void initialize(URL url, ResourceBundle rb) {
-		transition1.setNode(menu);
+		transition1.setNode(libIt);
 		transition2.setNode(exit);
 
 		transition1.setPath(circle);

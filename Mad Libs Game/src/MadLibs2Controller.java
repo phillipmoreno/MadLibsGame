@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -120,6 +122,15 @@ public class MadLibs2Controller implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	@FXML
+	void keyPressed(KeyEvent event) {
+		if (event.getCode().equals(KeyCode.ENTER)) {
+			libIt.fire();
+		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
+			close.fire();
 		}
 	}
 

@@ -58,47 +58,47 @@
 						<Font name="System Bold" size="14.0" />
 					</font>
 				</Label>
-				<TextField fx:id="cityTF1" layoutX="260.0" layoutY="115.0" prefHeight="30.0" prefWidth="230.0">
+				<TextField fx:id="cityTF1" layoutX="260.0" layoutY="115.0" onKeyPressed="#keyPressed" prefHeight="30.0" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="cityTF2" layoutX="275.0" layoutY="155.0" prefWidth="230.0">
+				<TextField fx:id="cityTF2" layoutX="275.0" layoutY="155.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="foodTF1" layoutX="275.0" layoutY="195.0" prefWidth="230.0">
+				<TextField fx:id="foodTF1" layoutX="275.0" layoutY="195.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="foodTF2" layoutX="265.0" layoutY="235.0" prefWidth="230.0">
+				<TextField fx:id="foodTF2" layoutX="265.0" layoutY="235.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="foodTF3" layoutX="265.0" layoutY="275.0" prefWidth="230.0">
+				<TextField fx:id="foodTF3" layoutX="265.0" layoutY="275.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="bookTF1" layoutX="290.0" layoutY="315.0" prefWidth="230.0">
+				<TextField fx:id="bookTF1" layoutX="290.0" layoutY="315.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="bookTF2" layoutX="295.0" layoutY="355.0" prefWidth="230.0">
+				<TextField fx:id="bookTF2" layoutX="295.0" layoutY="355.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="toyTF" layoutX="245.0" layoutY="395.0" prefWidth="230.0">
+				<TextField fx:id="toyTF" layoutX="245.0" layoutY="395.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</TextField>
-				<TextField fx:id="schoolsubTF" layoutX="290.0" layoutY="435.0" prefWidth="230.0">
+				<TextField fx:id="schoolsubTF" layoutX="290.0" layoutY="435.0" onKeyPressed="#keyPressed" prefWidth="230.0">
 					<font>
 						<Font size="14.0" />
 					</font>
@@ -108,12 +108,12 @@
 						<Image url="@MadLibsLogo2.png" />
 					</image>
 				</ImageView>
-				<Button fx:id="libIt" layoutX="90.0" layoutY="510.0" mnemonicParsing="false" onAction="#openNewStage" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
+				<Button fx:id="libIt" layoutX="90.0" layoutY="510.0" mnemonicParsing="false" onAction="#openNewStage" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
 					<font>
 						<Font name="Microsoft New Tai Lue Bold" size="18.0" />
 					</font>
 				</Button>
-				<Button fx:id="close" layoutX="500.0" layoutY="510.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT" textFill="WHITE">
+				<Button fx:id="close" layoutX="500.0" layoutY="510.0" mnemonicParsing="false" onAction="#closeProgram" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT" textFill="WHITE">
 					<font>
 						<Font name="System Bold" size="18.0" />
 					</font>
