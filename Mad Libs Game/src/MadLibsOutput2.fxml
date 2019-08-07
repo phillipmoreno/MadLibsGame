@@ -6,38 +6,35 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsOutput2Controller">
-   <center>
-      <AnchorPane prefHeight="560.0" prefWidth="600.0" style="-fx-background-color: MistyRose;" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="title" layoutX="270.0" layoutY="30.0" prefHeight="69.0" prefWidth="286.0" text="A New Sport">
-               <font>
-                  <Font name="Sitka Small" size="44.0" />
-               </font>
-            </Label>
-            <Button fx:id="menu" layoutX="85.0" layoutY="505.0" mnemonicParsing="false" onAction="#openMainMenu" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="MAIN MENU">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="exit" layoutX="510.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <TextArea fx:id="output" editable="false" layoutX="15.0" layoutY="80.0" prefHeight="380.0" prefWidth="570.0" wrapText="true">
-               <font>
-                  <Font size="16.0" />
-               </font></TextArea>
-            <ImageView fx:id="madLibsLogo" fitHeight="60.0" fitWidth="60.0" layoutX="425.0" layoutY="2.0" pickOnBounds="true" y="7.0">
-               <image>
-                  <Image url="@MadLibsLogo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: MistyRose;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsOutput2Controller">
+   <children>
+      <Label fx:id="title" layoutX="270.0" layoutY="30.0" prefHeight="69.0" prefWidth="286.0" text="A New Sport">
+         <font>
+            <Font name="Sitka Small" size="44.0" />
+         </font>
+      </Label>
+      <Button fx:id="menu" layoutX="85.0" layoutY="505.0" mnemonicParsing="false" onAction="#openMainMenu" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="MAIN MENU">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit" layoutX="510.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 20; -fx-background-radius: 20;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="output" editable="false" layoutX="15.0" layoutY="80.0" prefHeight="380.0" prefWidth="570.0" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+      <ImageView fx:id="madLibsLogo" fitHeight="60.0" fitWidth="60.0" layoutX="425.0" layoutY="2.0" pickOnBounds="true" y="7.0">
+         <image>
+            <Image url="@MadLibsLogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

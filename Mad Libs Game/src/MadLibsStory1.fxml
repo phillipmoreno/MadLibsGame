@@ -6,12 +6,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibs1Controller">
-	<center>
-		<AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: aliceblue;" BorderPane.alignment="CENTER">
+<AnchorPane fx:id="container" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: aliceblue;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibs1Controller">
 			<children>
 				<Label layoutX="45.0" layoutY="115.0" prefHeight="22.0" prefWidth="204.0" text="Enter a City or Town (Ex. NYC)">
 					<font>
@@ -108,17 +105,15 @@
 						<Image url="@MadLibsLogo2.png" />
 					</image>
 				</ImageView>
-				<Button fx:id="libIt" layoutX="90.0" layoutY="510.0" mnemonicParsing="false" onAction="#openNewStage" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
+				<Button fx:id="libIt" layoutX="90.0" layoutY="530.0" mnemonicParsing="false" onAction="#openNewStage" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
 					<font>
 						<Font name="Microsoft New Tai Lue Bold" size="18.0" />
 					</font>
 				</Button>
-				<Button fx:id="close" layoutX="500.0" layoutY="510.0" mnemonicParsing="false" onAction="#closeProgram" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT" textFill="WHITE">
+				<Button fx:id="close" layoutX="500.0" layoutY="530.0" mnemonicParsing="false" onAction="#closeProgram" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT" textFill="WHITE">
 					<font>
 						<Font name="System Bold" size="18.0" />
 					</font>
 				</Button>
 			</children>
 		</AnchorPane>
-	</center>
-</BorderPane>

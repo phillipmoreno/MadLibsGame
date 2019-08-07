@@ -1,10 +1,12 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javax.swing.JOptionPane;
-
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,16 +16,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class MadLibs2Controller implements Initializable {
+
+	@FXML
+	private AnchorPane container;
 
 	@FXML
 	private TextField nameTF;
@@ -78,7 +84,7 @@ public class MadLibs2Controller implements Initializable {
 	}
 
 	@FXML
-	void openNewStage(ActionEvent event) {
+	void openNewStage(ActionEvent event) throws IOException {
 		if (nameTF.getText().equals("") || adjectiveTF1.getText().equals("") || nounTF.getText().equals("")
 				|| expressionTF.getText().equals("") || numberTF.getText().equals("")
 				|| adjectiveTF2.getText().equals("") || schoolTF.getText().equals("")
@@ -86,8 +92,6 @@ public class MadLibs2Controller implements Initializable {
 			JOptionPane.showMessageDialog(null, "Please be sure to enter input for every field", "Missing Field(s)",
 					JOptionPane.WARNING_MESSAGE);
 		} else {
-			Stage stage = (Stage) close.getScene().getWindow();
-			stage.close();
 			String name = nameTF.getText();
 			String adjective1 = adjectiveTF1.getText();
 			String noun = nounTF.getText();
@@ -99,29 +103,26 @@ public class MadLibs2Controller implements Initializable {
 			String food = foodTF.getText();
 			String liquid = liquidTF.getText();
 
-			try {
-				// FXMLLoader object is created to load in fxml file
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput2.fxml"));
-				// Parent object is created and set as a loader
-				Parent root = (Parent) loader.load();
-				// MadLibOutputController object is created and controller is retrieved
-				MadLibsOutput2Controller mloc = loader.getController();
-				// the setTextArea function is called
-				mloc.setTextArea(name, adjective1, noun, expression, number, adjective2, school, restaurant, food,
-						liquid);
-				// Stage object is created
-				Stage Output = new Stage();
-				// Stage title is set
-				Output.setTitle("A New Sport");
-				// Scene object is created and set with the Parent object as a parameter
-				Output.setScene(new Scene(root));
-				// The Stage icon is set to a .png image
-				Output.getIcons().add(new Image("MadLibsLogo.png"));
-				// Stage is displayed
-				Output.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			// FXMLLoader object is created to load in fxml file
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput2.fxml"));
+			// Parent object is created and set as a loader
+			Parent root = (Parent) loader.load();
+			// MadLibOutputController object is created and controller is retrieved
+			MadLibsOutput2Controller mloc = loader.getController();
+			// the setTextArea function is called
+			mloc.setTextArea(name, adjective1, noun, expression, number, adjective2, school, restaurant, food, liquid);
+			Scene scene = libIt.getScene();
+			root.translateXProperty().set(scene.getWidth());
+			StackPane parentContainer = (StackPane) scene.getRoot();
+			parentContainer.getChildren().add(root);
+			Timeline timeline = new Timeline();
+			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
+			timeline.getKeyFrames().add(kf);
+			timeline.setOnFinished(event1 -> {
+				parentContainer.getChildren().remove(container);
+			});
+			timeline.play();
 		}
 	}
 

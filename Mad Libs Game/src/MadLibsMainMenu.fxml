@@ -5,13 +5,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsMainMenuController">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightSkyBlue;" BorderPane.alignment="CENTER">
+
+<StackPane fx:id="parentContainer" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibsMainMenuController">
+   <children>
+      <AnchorPane fx:id="anchorRoot" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightSkyBlue;">
          <children>
             <ImageView fitHeight="130.0" fitWidth="400.0" layoutX="100.0" pickOnBounds="true" smooth="false">
                <image>
@@ -23,18 +24,21 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="story1" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-background-radius: 20; -fx-border-radius: 20;" text="WackyTown">
+            <Button fx:id="story1" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" onAction="#loadStory1" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-background-radius: 20; -fx-border-radius: 20;" text="WackyTown">
                <font>
                   <Font name="Segoe Print Bold" size="18.0" />
-               </font></Button>
-            <Button fx:id="story2" layoutX="270.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-border-radius: 20; -fx-background-radius: 20;" text="A New Sport">
+               </font>
+            </Button>
+            <Button fx:id="story2" layoutX="270.0" layoutY="305.0" mnemonicParsing="false" onAction="#loadStory2" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-border-radius: 20; -fx-background-radius: 20;" text="A New Sport">
                <font>
                   <Font name="Candara Bold" size="18.0" />
-               </font></Button>
-            <Button fx:id="story3" layoutX="270.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleButtonAction" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-border-radius: 20; -fx-background-radius: 20;" text="Our Class Project">
+               </font>
+            </Button>
+            <Button fx:id="story3" layoutX="270.0" layoutY="405.0" mnemonicParsing="false" onAction="#loadStory3" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="45.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-width: 1.4; -fx-border-radius: 20; -fx-background-radius: 20;" text="Our Class Project">
                <font>
                   <Font name="Segoe Print Bold" size="17.0" />
-               </font></Button>
+               </font>
+            </Button>
             <Button fx:id="exit" layoutX="469.0" layoutY="505.0" mnemonicParsing="false" onAction="#closeProgram" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="41.0" prefWidth="64.0" style="-fx-background-color: red; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="EXIT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -45,5 +49,5 @@
             <Polygon fx:id="triangle3" fill="#f5e61c" layoutX="99.0" layoutY="430.0" points="-10.0, -10.0, 20.0, -10.0, 5.0, -40.0" scaleX="1.3" scaleY="1.3" scaleZ="1.3" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
-   </center>
-</BorderPane>
+   </children>
+</StackPane>
