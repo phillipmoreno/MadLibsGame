@@ -17,7 +17,7 @@ public class MadLibsMainMenu extends Application {
 		// Stage is set
 		primaryStage.setScene(scene);
 		// The Stage title is set
-		primaryStage.setTitle("Mad Libs Game");
+		primaryStage.setTitle("Mad Libs");
 		// The Stage icon is set to a .png image
 		primaryStage.getIcons().add(new Image("MadLibsLogo.png"));
 		// The stage is displayed
