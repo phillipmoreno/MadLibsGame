@@ -105,12 +105,12 @@
 						<Image url="@MadLibsLogo2.png" />
 					</image>
 				</ImageView>
-				<Button fx:id="libIt" layoutX="90.0" layoutY="530.0" mnemonicParsing="false" onAction="#openNewStage" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
+				<Button fx:id="libIt" layoutX="90.0" layoutY="530.0" mnemonicParsing="false" onAction="#loadStory" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="LIB IT!!!" textFill="#1b1b1b">
 					<font>
 						<Font name="Microsoft New Tai Lue Bold" size="18.0" />
 					</font>
 				</Button>
-				<Button fx:id="close" layoutX="500.0" layoutY="530.0" mnemonicParsing="false" onAction="#closeProgram" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="EXIT" textFill="WHITE">
+				<Button fx:id="menu" layoutX="500.0" layoutY="530.0" mnemonicParsing="false" onAction="#returnToMenu" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 20;" text="MENU" textFill="WHITE">
 					<font>
 						<Font name="System Bold" size="18.0" />
 					</font>

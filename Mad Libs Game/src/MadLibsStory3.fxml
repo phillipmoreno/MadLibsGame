@@ -115,12 +115,12 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="libIt" layoutX="85.0" layoutY="540.0" mnemonicParsing="false" onAction="#openNewStage" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: black;" text="LIB IT!!!">
+      <Button fx:id="libIt" layoutX="85.0" layoutY="540.0" mnemonicParsing="false" onAction="#loadStory" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="92.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: black;" text="LIB IT!!!">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="exit" layoutX="495.0" layoutY="540.0" mnemonicParsing="false" onAction="#closeProgram" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="85.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: red; -fx-border-color: black;" text="EXIT" textFill="WHITE">
+      <Button fx:id="menu" layoutX="495.0" layoutY="540.0" mnemonicParsing="false" onAction="#returnToMenu" onKeyPressed="#keyPressed" onMouseExited="#play" onMouseMoved="#hovered" prefHeight="40.0" prefWidth="85.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: red; -fx-border-color: black;" text="MENU" textFill="WHITE">
          <font>
             <Font name="Microsoft New Tai Lue Bold" size="18.0" />
          </font>

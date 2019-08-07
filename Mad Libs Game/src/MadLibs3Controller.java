@@ -64,7 +64,7 @@ public class MadLibs3Controller implements Initializable {
 	private Button libIt;
 
 	@FXML
-	private Button exit;
+	private Button menu;
 
 	Circle circle = new Circle(9.0);
 
@@ -76,8 +76,20 @@ public class MadLibs3Controller implements Initializable {
 	DropShadow shadow2 = new DropShadow();
 
 	@FXML
-	void closeProgram(ActionEvent event) {
-		System.exit(0);
+	void returnToMenu(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("MadLibsMainMenu.fxml"));
+		Scene scene = menu.getScene();
+		root.translateXProperty().set(scene.getHeight());
+		StackPane parentContainer = (StackPane) scene.getRoot();
+		parentContainer.getChildren().add(root);
+		Timeline timeline = new Timeline();
+		KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
+		timeline.getKeyFrames().add(kf);
+		timeline.setOnFinished(event1 -> {
+			parentContainer.getChildren().remove(container);
+		});
+		timeline.play();
 	}
 
 	@FXML
@@ -90,9 +102,9 @@ public class MadLibs3Controller implements Initializable {
 		if (event.getSource() == libIt) {
 			transition1.stop();
 			libIt.setEffect(shadow1);
-		} else if (event.getSource() == exit) {
+		} else if (event.getSource() == menu) {
 			transition2.stop();
-			exit.setEffect(shadow2);
+			menu.setEffect(shadow2);
 		}
 	}
 
@@ -101,11 +113,11 @@ public class MadLibs3Controller implements Initializable {
 		transition1.play();
 		transition2.play();
 		libIt.setEffect(null);
-		exit.setEffect(null);
+		menu.setEffect(null);
 	}
 
 	@FXML
-	void openNewStage(ActionEvent event) throws IOException {
+	void loadStory(ActionEvent event) throws IOException {
 		if (animalTF.getText().equals("") || adjectiveTF.getText().equals("") || colorTF.getText().equals("")
 				|| nounTF1.getText().equals("") || foodTF.getText().equals("") || plantTF.getText().equals("")
 				|| nounTF2.getText().equals("") || verbTF.getText().equals("") || noiseTF.getText().equals("")
@@ -152,13 +164,13 @@ public class MadLibs3Controller implements Initializable {
 		if (event.getCode().equals(KeyCode.ENTER)) {
 			libIt.fire();
 		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
-			exit.fire();
+			menu.fire();
 		}
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(libIt);
-		transition2.setNode(exit);
+		transition2.setNode(menu);
 
 		transition1.setPath(circle);
 		transition2.setPath(circle);
