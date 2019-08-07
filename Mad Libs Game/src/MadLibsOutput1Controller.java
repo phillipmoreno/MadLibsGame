@@ -86,7 +86,7 @@ public class MadLibsOutput1Controller implements Initializable {
 				+ ", " + " and " + food3 + ". There is a bookstore selling " + book1 + " and " + book2
 				+ ". There is even a toy store selling " + toy + "! It's like having " + town2
 				+ " right in your own back yard."
-				+ "\n\nThe best area of Wackytown is Make-Believe Land, which includes the “No Tests School,” where students study subject, but where there are "
+				+ "\n\nThe best area of Wackytown is Make-Believe Land, which includes the “No Tests School,” where students study " + subject + ", but where there are "
 				+ "never any tests. There is also a demonstration of the “Homework Robot.” Just give your homework to the robot, press the button, and it comes out "
 				+ "done entirely correct! It's the wave of the future! "
 				+ "\n\nWe hope you will come visit Wackytown soon. You are sure to have a wacky time!");

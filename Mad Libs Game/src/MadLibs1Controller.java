@@ -2,7 +2,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +16,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class MadLibs1Controller implements Initializable {
+
+	@FXML
+	private AnchorPane container;
 
 	@FXML
 	private TextField cityTF1;
@@ -73,15 +81,13 @@ public class MadLibs1Controller implements Initializable {
 	}
 
 	@FXML
-	void openNewStage(ActionEvent event) {
+	void openNewStage(ActionEvent event) throws IOException {
 		if (cityTF1.getText().equals("") || cityTF2.getText().equals("") || foodTF1.getText().equals("")
 				|| foodTF2.getText().equals("") || foodTF3.getText().equals("") || bookTF1.getText().equals("")
 				|| bookTF2.getText().equals("") || toyTF.getText().equals("") || schoolsubTF.getText().equals("")) {
 			JOptionPane.showMessageDialog(null, "Please be sure to enter input for every field", "Missing Field(s)",
 					JOptionPane.WARNING_MESSAGE);
 		} else {
-			Stage story1 = (Stage) close.getScene().getWindow();
-			story1.close();
 			// String objects are created and used to retrieve input from every text field
 			String city1 = cityTF1.getText();
 			String city2 = cityTF2.getText();
@@ -92,28 +98,27 @@ public class MadLibs1Controller implements Initializable {
 			String book2 = bookTF2.getText();
 			String toy = toyTF.getText();
 			String subject = schoolsubTF.getText();
-			try {
-				// FXMLLoader object is created to load in fxml file
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput1.fxml"));
-				// Parent object is created and set as a loader
-				Parent root = (Parent) loader.load();
-				// MadLibOutputController object is created and controller is retrieved
-				MadLibsOutput1Controller mloc = loader.getController();
-				// the setTextArea function is called
-				mloc.setTextArea(city1, city2, food1, food2, food3, book1, book2, toy, subject);
-				// Stage object is created
-				Stage stage = new Stage();
-				// Stage title is set
-				stage.setTitle("Wackytown");
-				// Scene object is created and set with the Parent object as a parameter
-				stage.setScene(new Scene(root));
-				// The Stage icon is set to a .png image
-				stage.getIcons().add(new Image("MadLibsLogo.png"));
-				// Stage is displayed
-				stage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+
+			// FXMLLoader object is created to load in fxml file
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput1.fxml"));
+			// Parent object is created and set as a loader
+			Parent root = (Parent) loader.load();
+			// MadLibOutputController object is created and controller is retrieved
+			MadLibsOutput1Controller mloc = loader.getController();
+			// the setTextArea function is called
+			mloc.setTextArea(city1, city2, food1, food2, food3, book1, book2, toy, subject);
+			Scene scene = libIt.getScene();
+			root.translateXProperty().set(scene.getWidth());
+			StackPane parentContainer = (StackPane) scene.getRoot();
+			parentContainer.getChildren().add(root);
+			Timeline timeline = new Timeline();
+			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
+			timeline.getKeyFrames().add(kf);
+			timeline.setOnFinished(event1 -> {
+				parentContainer.getChildren().remove(container);
+			});
+			timeline.play();
 		}
 	}
 

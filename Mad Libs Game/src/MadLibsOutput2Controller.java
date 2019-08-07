@@ -115,7 +115,7 @@ public class MadLibsOutput2Controller implements Initializable {
 				+ "! I tried again, and this time I kicked the " + noun
 				+ " all the way to the end of the field. The fans in the stands hollered “" + expression
 				+ "!” I won the game!\n\nNow I am the champion of " + school + "! I didn't want " + name
-				+ " to feel badly, so I treated " + name + " to a trip to restaurant for a(n) " + food + " sundae with "
+				+ " to feel badly, so I treated " + name + " to a trip to " + restaurant + " for a(n) " + food + " sundae with "
 				+ liquid + " on top!");
 
 	}
