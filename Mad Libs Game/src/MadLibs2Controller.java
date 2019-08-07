@@ -67,7 +67,7 @@ public class MadLibs2Controller implements Initializable {
 	@FXML
 	private Button close;
 
-	Circle circle = new Circle(4.5);
+	Circle circle = new Circle(9.0);
 
 	PathTransition transition1 = new PathTransition();
 	PathTransition transition2 = new PathTransition();

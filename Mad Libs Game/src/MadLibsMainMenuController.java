@@ -134,7 +134,7 @@ public class MadLibsMainMenuController implements Initializable {
 		shadow2.setSpread(0.4);
 		shadow3.setColor(Color.GOLD);
 		shadow3.setSpread(0.4);
-		shadow4.setColor(Color.BLACK);
+		shadow4.setColor(Color.LIGHTGREEN);
 		shadow4.setSpread(0.4);
 
 		if (event.getSource() == story1) {
