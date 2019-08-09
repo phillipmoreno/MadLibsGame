@@ -85,6 +85,7 @@ public class MadLibs1Controller implements Initializable {
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 		timeline.getKeyFrames().add(kf);
 		timeline.setOnFinished(event1 -> {
+			container.setDisable(true);
 			parentContainer.getChildren().remove(container);
 		});
 		timeline.play();
