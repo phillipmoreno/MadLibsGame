@@ -87,8 +87,8 @@ public class MadLibs2Controller implements Initializable {
 		KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 		timeline.getKeyFrames().add(kf);
+		container.setDisable(true);
 		timeline.setOnFinished(event1 -> {
-			container.setDisable(true);
 			parentContainer.getChildren().remove(container);
 		});
 		timeline.play();
@@ -130,6 +130,7 @@ public class MadLibs2Controller implements Initializable {
 			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 			timeline.getKeyFrames().add(kf);
+			container.setDisable(true);
 			timeline.setOnFinished(event1 -> {
 				parentContainer.getChildren().remove(container);
 			});

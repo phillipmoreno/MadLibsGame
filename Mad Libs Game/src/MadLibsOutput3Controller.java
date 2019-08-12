@@ -36,12 +36,6 @@ public class MadLibsOutput3Controller implements Initializable {
 	private ImageView logo;
 
 	@FXML
-	private Polygon triangle1;
-
-	@FXML
-	private Polygon triangle2;
-
-	@FXML
 	private Button menu;
 
 	@FXML
@@ -50,12 +44,9 @@ public class MadLibsOutput3Controller implements Initializable {
 	Circle circle = new Circle(9.4);
 	Rectangle rectangle = new Rectangle(16, 8);
 
-	RotateTransition transition1 = new RotateTransition(Duration.seconds(1.2), triangle1);
-	RotateTransition transition2 = new RotateTransition(Duration.seconds(1.2), triangle2);
-
+	PathTransition transition1 = new PathTransition();
+	PathTransition transition2 = new PathTransition();
 	PathTransition transition3 = new PathTransition();
-	PathTransition transition4 = new PathTransition();
-	PathTransition transition5 = new PathTransition();
 
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
@@ -111,14 +102,10 @@ public class MadLibsOutput3Controller implements Initializable {
 
 		if (event.getSource() == menu) {
 			transition1.stop();
-			transition3.stop();
 			menu.setEffect(shadow1);
-			triangle1.setFill(Color.MEDIUMSPRINGGREEN);
 		} else if (event.getSource() == exit) {
 			transition2.stop();
-			transition4.stop();
 			exit.setEffect(shadow2);
-			triangle2.setFill(Color.MEDIUMSPRINGGREEN);
 		}
 	}
 
@@ -126,46 +113,33 @@ public class MadLibsOutput3Controller implements Initializable {
 	void play(MouseEvent event) {
 		transition1.play();
 		transition2.play();
-		transition3.play();
-		transition4.play();
-		triangle1.setFill(Color.DODGERBLUE);
-		triangle2.setFill(Color.DODGERBLUE);
 		menu.setEffect(null);
 		exit.setEffect(null);
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
-		transition1.setNode(triangle1);
-		transition2.setNode(triangle2);
-		transition3.setNode(menu);
-		transition4.setNode(exit);
-		transition5.setNode(title);
-		
-		transition1.setByAngle(360);
-		transition2.setByAngle(360);
+		transition1.setNode(menu);
+		transition2.setNode(exit);
+		transition3.setNode(title);
 
-		transition3.setPath(circle);
-		transition4.setPath(circle);
-		transition5.setPath(rectangle);
+		transition1.setPath(circle);
+		transition2.setPath(circle);
+		transition3.setPath(rectangle);
 		
+		transition1.setDuration(Duration.seconds(1.2));
+		transition2.setDuration(Duration.seconds(1.2));
 		transition3.setDuration(Duration.seconds(1.2));
-		transition4.setDuration(Duration.seconds(1.2));
-		transition5.setDuration(Duration.seconds(1.2));
 		
+		transition1.setAutoReverse(true);
+		transition2.setAutoReverse(true);
 		transition3.setAutoReverse(true);
-		transition4.setAutoReverse(true);
-		transition5.setAutoReverse(true);
 		
-		transition1.setCycleCount(RotateTransition.INDEFINITE);
-		transition2.setCycleCount(RotateTransition.INDEFINITE);
+		transition1.setCycleCount(PathTransition.INDEFINITE);
+		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
-		transition4.setCycleCount(PathTransition.INDEFINITE);
-		transition5.setCycleCount(PathTransition.INDEFINITE);
-		
+
 		transition1.play();
 		transition2.play();
 		transition3.play();
-		transition4.play();
-		transition5.play();
 	}
 }
