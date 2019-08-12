@@ -88,6 +88,9 @@ public class MadLibsMainMenuController implements Initializable {
 		KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 		timeline.getKeyFrames().add(kf);
+		story1.setDisable(true);
+		story2.setDisable(true);
+		story3.setDisable(true);
 		timeline.setOnFinished(event1 -> {
 			parentContainer.getChildren().remove(anchorRoot);
 		});
@@ -104,6 +107,9 @@ public class MadLibsMainMenuController implements Initializable {
 		KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 		timeline.getKeyFrames().add(kf);
+		story1.setDisable(true);
+		story2.setDisable(true);
+		story3.setDisable(true);
 		timeline.setOnFinished(event1 -> {
 			parentContainer.getChildren().remove(anchorRoot);
 		});
@@ -120,6 +126,9 @@ public class MadLibsMainMenuController implements Initializable {
 		KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 		timeline.getKeyFrames().add(kf);
+		story1.setDisable(true);
+		story2.setDisable(true);
+		story3.setDisable(true);
 		timeline.setOnFinished(event1 -> {
 			parentContainer.getChildren().remove(anchorRoot);
 		});

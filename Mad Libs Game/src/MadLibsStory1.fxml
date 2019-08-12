@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: aliceblue;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibs1Controller">
+<AnchorPane fx:id="container" onKeyPressed="#keyPressed" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: aliceblue;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MadLibs1Controller">
 			<children>
 				<Label layoutX="45.0" layoutY="115.0" prefHeight="22.0" prefWidth="204.0" text="Enter a City or Town (Ex. NYC)">
 					<font>
