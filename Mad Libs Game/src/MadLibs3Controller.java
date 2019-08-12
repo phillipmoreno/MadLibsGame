@@ -68,8 +68,9 @@ public class MadLibs3Controller implements Initializable {
 
 	Circle circle = new Circle(9.0);
 
-	PathTransition transition1 = new PathTransition();
-	PathTransition transition2 = new PathTransition();
+	// PathTransition objects created. Duration and Path are set in constructor
+	PathTransition transition1 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition2 = new PathTransition(Duration.seconds(1.2), circle);
 
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
@@ -91,31 +92,6 @@ public class MadLibs3Controller implements Initializable {
 			parentContainer.getChildren().remove(container);
 		});
 		timeline.play();
-
-	}
-
-	@FXML
-	void hovered(MouseEvent event) {
-		shadow1.setColor(Color.CORNFLOWERBLUE);
-		shadow1.setSpread(0.5);
-		shadow2.setColor(Color.CORNFLOWERBLUE);
-		shadow2.setSpread(0.5);
-
-		if (event.getSource() == libIt) {
-			transition1.stop();
-			libIt.setEffect(shadow1);
-		} else if (event.getSource() == menu) {
-			transition2.stop();
-			menu.setEffect(shadow2);
-		}
-	}
-
-	@FXML
-	void play(MouseEvent event) {
-		transition1.play();
-		transition2.play();
-		libIt.setEffect(null);
-		menu.setEffect(null);
 	}
 
 	@FXML
@@ -144,7 +120,7 @@ public class MadLibs3Controller implements Initializable {
 			Parent root = (Parent) loader.load();
 			// MadLibOutputController object is created and controller is retrieved
 			MadLibsOutput3Controller mloc = loader.getController();
-			// the setTextArea function is called
+			// setTextArea function is called
 			mloc.setTextArea(animal, adjective, color, noun1, food, plant, noun2, verb, noise, exclamation);
 			Scene scene = libIt.getScene();
 			root.translateXProperty().set(scene.getWidth());
@@ -154,12 +130,38 @@ public class MadLibs3Controller implements Initializable {
 			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 			timeline.getKeyFrames().add(kf);
+			// Nodes are disabled once the transition has commenced
 			container.setDisable(true);
 			timeline.setOnFinished(event1 -> {
 				parentContainer.getChildren().remove(container);
 			});
 			timeline.play();
 		}
+	}
+
+	@FXML
+	void hovered(MouseEvent event) {
+		// Color and spread is set for DropShadow objects
+		shadow1.setColor(Color.CORNFLOWERBLUE);
+		shadow1.setSpread(0.5);
+		shadow2.setColor(Color.CORNFLOWERBLUE);
+		shadow2.setSpread(0.5);
+
+		if (event.getSource() == libIt) {
+			transition1.stop();
+			libIt.setEffect(shadow1);
+		} else if (event.getSource() == menu) {
+			transition2.stop();
+			menu.setEffect(shadow2);
+		}
+	}
+
+	@FXML
+	void play(MouseEvent event) {
+		transition1.play();
+		transition2.play();
+		libIt.setEffect(null);
+		menu.setEffect(null);
 	}
 
 	@FXML
@@ -174,12 +176,6 @@ public class MadLibs3Controller implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(libIt);
 		transition2.setNode(menu);
-
-		transition1.setPath(circle);
-		transition2.setPath(circle);
-
-		transition1.setDuration(Duration.seconds(1.2));
-		transition2.setDuration(Duration.seconds(1.2));
 
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);

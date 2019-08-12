@@ -58,16 +58,17 @@ public class MadLibs1Controller implements Initializable {
 	private TextField schoolsubTF;
 
 	@FXML
-	private Button menu;
-
-	@FXML
 	private Button libIt;
 
-	Circle circle = new Circle(9.4);
+	@FXML
+	private Button menu;
 
-	PathTransition transition1 = new PathTransition();
-	PathTransition transition2 = new PathTransition();
-	PathTransition transition3 = new PathTransition();
+	// Circle object created
+	Circle circle = new Circle(9.0);
+
+	// PathTransition objects created. Duration and Path are set in constructor
+	PathTransition transition1 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition2 = new PathTransition(Duration.seconds(1.2), circle);
 
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
@@ -116,7 +117,7 @@ public class MadLibs1Controller implements Initializable {
 			Parent root = (Parent) loader.load();
 			// MadLibOutputController object is created and controller is retrieved
 			MadLibsOutput1Controller mloc = loader.getController();
-			// the setTextArea function is called
+			// setTextArea function is called
 			mloc.setTextArea(city1, city2, food1, food2, food3, book1, book2, toy, subject);
 			Scene scene = libIt.getScene();
 			root.translateXProperty().set(scene.getWidth());
@@ -126,6 +127,7 @@ public class MadLibs1Controller implements Initializable {
 			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
 			timeline.getKeyFrames().add(kf);
+			// Nodes are disabled once the transition has commenced
 			container.setDisable(true);
 			timeline.setOnFinished(event1 -> {
 				parentContainer.getChildren().remove(container);
@@ -135,16 +137,8 @@ public class MadLibs1Controller implements Initializable {
 	}
 
 	@FXML
-	void keyPressed(KeyEvent event) {
-		if (event.getCode().equals(KeyCode.ENTER)) {
-			libIt.fire();
-		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
-			menu.fire();
-		}
-	}
-
-	@FXML
 	void hovered(MouseEvent event) {
+		// Color and spread is set for DropShadow objects
 		shadow1.setColor(Color.CORNFLOWERBLUE);
 		shadow1.setSpread(0.5);
 		shadow2.setColor(Color.CORNFLOWERBLUE);
@@ -167,15 +161,18 @@ public class MadLibs1Controller implements Initializable {
 		menu.setEffect(null);
 	}
 
+	@FXML
+	void keyPressed(KeyEvent event) {
+		if (event.getCode().equals(KeyCode.ENTER)) {
+			libIt.fire();
+		} else if (event.getCode().equals(KeyCode.ESCAPE)) {
+			menu.fire();
+		}
+	}
+
 	public void initialize(URL url, ResourceBundle rb) {
 		transition1.setNode(libIt);
 		transition2.setNode(menu);
-
-		transition1.setPath(circle);
-		transition2.setPath(circle);
-
-		transition1.setDuration(Duration.seconds(1.2));
-		transition2.setDuration(Duration.seconds(1.2));
 
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
