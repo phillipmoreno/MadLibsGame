@@ -34,12 +34,15 @@ public class MadLibsOutput1Controller implements Initializable {
 	@FXML
 	private Button exit;
 
+	// Circle object is created
 	Circle circle = new Circle(9.4);
+	// Rectangle object is created
 	Rectangle rectangle = new Rectangle(16, 8);
 
-	PathTransition transition1 = new PathTransition();
-	PathTransition transition2 = new PathTransition();
-	PathTransition transition3 = new PathTransition();
+	// PathTransition objects are created. Duration and Path are set in constructor
+	PathTransition transition1 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition2 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition3 = new PathTransition(Duration.seconds(1.9), rectangle);
 
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
@@ -74,8 +77,7 @@ public class MadLibsOutput1Controller implements Initializable {
 		}
 	}
 
-	// setTextArea function is created to output the http://www.eduplace.com/tales/
-	// chosen story including the user input
+	// setTextArea function is created to output the story that includes user input
 	public void setTextArea(String town1, String town2, String food1, String food2, String food3, String book1,
 			String book2, String toy, String subject) {
 		madLibsTA.setText("Wackytown is a new amusement park located outside " + town1
@@ -86,7 +88,8 @@ public class MadLibsOutput1Controller implements Initializable {
 				+ ", " + " and " + food3 + ". There is a bookstore selling " + book1 + " and " + book2
 				+ ". There is even a toy store selling " + toy + "! It's like having " + town2
 				+ " right in your own back yard."
-				+ "\n\nThe best area of Wackytown is Make-Believe Land, which includes the “No Tests School,” where students study " + subject + ", but where there are "
+				+ "\n\nThe best area of Wackytown is Make-Believe Land, which includes the “No Tests School,” where students study "
+				+ subject + ", but where there are "
 				+ "never any tests. There is also a demonstration of the “Homework Robot.” Just give your homework to the robot, press the button, and it comes out "
 				+ "done entirely correct! It's the wave of the future! "
 				+ "\n\nWe hope you will come visit Wackytown soon. You are sure to have a wacky time!");
@@ -94,13 +97,16 @@ public class MadLibsOutput1Controller implements Initializable {
 
 	@FXML
 	void hovered(MouseEvent event) {
+		// Color and spread is set for DropShadow objects
 		shadow1.setColor(Color.CORNFLOWERBLUE);
 		shadow1.setSpread(0.5);
 		shadow2.setColor(Color.CORNFLOWERBLUE);
 		shadow2.setSpread(0.5);
 
 		if (event.getSource() == menu) {
+			// Transition is stopped once mouse hovers button
 			transition1.stop();
+			// Shadow effect is enabled once mouse hovers button
 			menu.setEffect(shadow1);
 		} else if (event.getSource() == exit) {
 			transition2.stop();
@@ -110,35 +116,32 @@ public class MadLibsOutput1Controller implements Initializable {
 
 	@FXML
 	void play(MouseEvent event) {
+		// Animation is played once mouse no longer hovers buttons
 		transition1.play();
 		transition2.play();
+		// Shadow effect is removed once mouse no longer hovers buttons
 		menu.setEffect(null);
 		exit.setEffect(null);
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
+		// Nodes are set
 		transition1.setNode(menu);
 		transition2.setNode(exit);
 		transition3.setNode(title);
 
-		transition1.setPath(circle);
-		transition2.setPath(circle);
-		transition3.setPath(rectangle);
-
-		transition1.setDuration(Duration.seconds(1.2));
-		transition2.setDuration(Duration.seconds(1.2));
-		transition3.setDuration(Duration.seconds(1.9));
-
+		// Transition direction is reversed once a full cycle has been completed
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
 
+		// Transition cycles are repeated indefinitely
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
 
+		// Transition animation is played
 		transition1.play();
 		transition2.play();
 		transition3.play();
-
 	}
 }
