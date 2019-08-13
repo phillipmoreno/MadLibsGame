@@ -41,9 +41,10 @@ public class MadLibsOutput2Controller implements Initializable {
 	Circle circle = new Circle(9.4);
 	Rectangle rectangle = new Rectangle(16, 8);
 
-	PathTransition transition1 = new PathTransition();
-	PathTransition transition2 = new PathTransition();
-	PathTransition transition3 = new PathTransition();
+	// PathTransition objects are created. Duration and Path are set in constructor
+	PathTransition transition1 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition2 = new PathTransition(Duration.seconds(1.2), circle);
+	PathTransition transition3 = new PathTransition(Duration.seconds(1.9), rectangle);
 
 	// DropShadow object created for animation
 	DropShadow shadow1 = new DropShadow();
@@ -56,13 +57,16 @@ public class MadLibsOutput2Controller implements Initializable {
 
 	@FXML
 	void hovered(MouseEvent event) {
+		// Color and spread is set for DropShadow objects
 		shadow1.setColor(Color.CORNFLOWERBLUE);
 		shadow1.setSpread(0.5);
 		shadow2.setColor(Color.CORNFLOWERBLUE);
 		shadow2.setSpread(0.5);
 
 		if (event.getSource() == menu) {
+			// Transition is stopped once mouse hovers button
 			transition1.stop();
+			// Shadow effect is enabled once mouse hovers button
 			menu.setEffect(shadow1);
 		} else if (event.getSource() == exit) {
 			transition2.stop();
@@ -72,8 +76,10 @@ public class MadLibsOutput2Controller implements Initializable {
 
 	@FXML
 	void play(MouseEvent event) {
+		// Animation is played once mouse no longer hovers buttons
 		transition1.play();
 		transition2.play();
+		// Shadow effect is removed once mouse no longer hovers buttons
 		menu.setEffect(null);
 		exit.setEffect(null);
 	}
@@ -100,9 +106,9 @@ public class MadLibsOutput2Controller implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	// setTextArea function is created to output the story that includes user input
 	public void setTextArea(String name, String adjective1, String noun, String expression, String number,
 			String adjective2, String school, String restaurant, String food, String liquid) {
 		output.setText(name + " and I decided to try out the newest sport at " + school + ". It's called " + adjective1
@@ -115,35 +121,28 @@ public class MadLibsOutput2Controller implements Initializable {
 				+ "! I tried again, and this time I kicked the " + noun
 				+ " all the way to the end of the field. The fans in the stands hollered “" + expression
 				+ "!” I won the game!\n\nNow I am the champion of " + school + "! I didn't want " + name
-				+ " to feel badly, so I treated " + name + " to a trip to " + restaurant + " for a(n) " + food + " sundae with "
-				+ liquid + " on top!");
-
+				+ " to feel badly, so I treated " + name + " to a trip to " + restaurant + " for a(n) " + food
+				+ " sundae with " + liquid + " on top!");
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
+		// Nodes are set
 		transition1.setNode(menu);
 		transition2.setNode(exit);
 		transition3.setNode(title);
 
-		transition1.setPath(circle);
-		transition2.setPath(circle);
-		transition3.setPath(rectangle);
-
-		transition1.setDuration(Duration.seconds(1.2));
-		transition2.setDuration(Duration.seconds(1.2));
-		transition3.setDuration(Duration.seconds(1.9));
-
+		// Transition direction is reversed once a full cycle has been completed
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
 
+		// Transition cycles are repeated indefinitely
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 		transition3.setCycleCount(PathTransition.INDEFINITE);
 
+		// Transition animation is played
 		transition1.play();
 		transition2.play();
 		transition3.play();
-
 	}
-
 }

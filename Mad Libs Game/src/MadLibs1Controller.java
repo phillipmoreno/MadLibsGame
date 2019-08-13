@@ -81,6 +81,7 @@ public class MadLibs1Controller implements Initializable {
 		root.translateXProperty().set(scene.getHeight());
 		StackPane parentContainer = (StackPane) scene.getRoot();
 		parentContainer.getChildren().add(root);
+		// Timeline object is created
 		Timeline timeline = new Timeline();
 		KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 		KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
@@ -100,7 +101,7 @@ public class MadLibs1Controller implements Initializable {
 			JOptionPane.showMessageDialog(null, "Please be sure to enter input for every field", "Missing Field(s)",
 					JOptionPane.WARNING_MESSAGE);
 		} else {
-			// String objects are created and used to retrieve input from every text field
+			// Strings are initialized and used to retrieve input from every text field
 			String city1 = cityTF1.getText();
 			String city2 = cityTF2.getText();
 			String food1 = foodTF1.getText();
@@ -111,7 +112,7 @@ public class MadLibs1Controller implements Initializable {
 			String toy = toyTF.getText();
 			String subject = schoolsubTF.getText();
 
-			// FXMLLoader object is created to load in fxml file
+			// FXMLLoader object is created to load FXML file
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MadLibsOutput1.fxml"));
 			// Parent object is created and set as a loader
 			Parent root = (Parent) loader.load();
@@ -123,6 +124,7 @@ public class MadLibs1Controller implements Initializable {
 			root.translateXProperty().set(scene.getWidth());
 			StackPane parentContainer = (StackPane) scene.getRoot();
 			parentContainer.getChildren().add(root);
+			// Timeline object is created
 			Timeline timeline = new Timeline();
 			KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
 			KeyFrame kf = new KeyFrame(Duration.seconds(0.9), kv);
@@ -132,6 +134,7 @@ public class MadLibs1Controller implements Initializable {
 			timeline.setOnFinished(event1 -> {
 				parentContainer.getChildren().remove(container);
 			});
+			// Animation is played
 			timeline.play();
 		}
 	}
@@ -145,7 +148,9 @@ public class MadLibs1Controller implements Initializable {
 		shadow2.setSpread(0.5);
 
 		if (event.getSource() == libIt) {
+			// Transition is stopped once mouse hovers button
 			transition1.stop();
+			// Shadow effect is enabled once mouse hovers button
 			libIt.setEffect(shadow1);
 		} else if (event.getSource() == menu) {
 			transition2.stop();
@@ -155,8 +160,10 @@ public class MadLibs1Controller implements Initializable {
 
 	@FXML
 	void play(MouseEvent event) {
+		// Animation is played once mouse no longer hovers buttons
 		transition1.play();
 		transition2.play();
+		// Shadow effect is removed once mouse no longer hovers buttons
 		libIt.setEffect(null);
 		menu.setEffect(null);
 	}
@@ -171,15 +178,19 @@ public class MadLibs1Controller implements Initializable {
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
+		// Nodes are set
 		transition1.setNode(libIt);
 		transition2.setNode(menu);
 
+		// Transition direction is reversed once a full cycle has been completed
 		transition1.setAutoReverse(true);
 		transition2.setAutoReverse(true);
 
+		// Transition cycles are repeated indefinitely
 		transition1.setCycleCount(PathTransition.INDEFINITE);
 		transition2.setCycleCount(PathTransition.INDEFINITE);
 
+		// Transition animation is played
 		transition1.play();
 		transition2.play();
 	}
